@@ -1,0 +1,39 @@
+@import '../../styles/include-media.scss';
+
+.headerContainer {
+    width: 100%;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    background: transparent;
+
+    position: absolute;
+
+    button {
+        border-radius: 5px;
+        padding: 10px;
+        position: absolute;
+        right: 40px;
+        top: 30px;
+        color: #FFF;
+        font-size: 16px;
+        border: none;
+        background: #1479EF;
+        display: flex;
+        align-items: center;
+
+        @include media(">=phone", "<lgphone") {
+            right: 20px;
+            top: 20px;
+        }
+
+        .icon {
+            margin-right: 10px;
+        }
+
+        &:hover {
+            filter: brightness(0.9);
+        }
+    }
+}

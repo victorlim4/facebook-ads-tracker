@@ -1,0 +1,27 @@
+@import '../../styles/include-media.scss';
+
+h1 {
+    color: #3F3B3B;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+
+    font-weight: 400;
+    font-size: 24px;
+    padding: 10px 0;
+
+    @include media(">=phone", "<lgphone") {
+        font-size: 18px;
+        padding: 10px 10px;
+        text-align: center;
+    }
+
+    strong {
+        font-weight: 500;
+        color: #1479EF;
+        font-size: 48px;
+
+        @include media(">=phone", "<lgphone") {
+            font-size: 36px;
+        }
+    }
+}

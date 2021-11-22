@@ -1,0 +1,33 @@
+@import '../../styles/include-media.scss';
+
+.footer {
+        display: flex;
+        padding: 30px 0;
+        justify-content: center;
+        align-items: center;
+
+        @include media(">=phone", "<lgphone") {
+            padding: 10px 0;
+        }
+
+        p {
+            color: #3F3B3B;
+            font-size: 16px;
+            font-weight: 400;
+            align-self: center;
+
+            @include media(">=phone", "<lgphone") {
+                text-align: center;
+                padding: 0 20px;
+            }
+
+            strong {
+                color: #214DE5;
+                cursor: pointer;
+
+                &:hover {
+                    filter: brightness(0.7);
+                }
+            }
+        }
+    }

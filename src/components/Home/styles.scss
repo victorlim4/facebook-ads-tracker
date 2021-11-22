@@ -1,0 +1,155 @@
+@import '../../styles/include-media.scss';
+
+.homeContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 150px;
+
+    background: #FFF;
+
+    @include media(">=phone", "<lgphone") {
+        padding-top: 80px;
+    }
+
+    .searchContainer {
+        background: #ebe9e9c9;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        border-radius: 10px;
+        padding-left: 10px;
+        align-items: center;
+        width: 50%;
+        height: 50px;
+        top: 30px;
+
+        @include media(">=phone", "<lgphone") {
+            width: 90%;
+        }
+
+        svg {
+            padding: 10px;
+            stroke: #3F3B3B;
+        }
+
+        input {
+            font-size: 14px; 
+            width: 100%;
+            padding: 10px;
+            outline: 0px;
+            color: #3F3B3B;
+            background: none;
+            border: 0;
+            transition: border 0.2s ease 0s;
+
+            &::placeholder, &:focus{
+              color: #3F3B3B;
+            }
+        }
+
+        .button {
+            background: #399DFA;
+            height: 50px;
+            width: 200px;
+            border: none;
+            color: #FFF;
+            text-transform: uppercase;
+            border-radius: 10px;
+
+            @include media(">=phone", "<lgphone") {
+                width: 30%;
+            }
+
+            &:hover {
+                filter: brightness(0.9);
+            }
+        }
+    }
+
+    .cardsSection {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        .grid {
+            display: grid;
+            padding: 0 30px;
+            margin-top: 20px;
+            justify-content: space-between;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+
+            @include media(">=phone", "<lgphone") {
+                padding: 0 10px;
+                grid-template-columns: 1fr;
+            }
+            @include media(">=lgphone", "<tablet") {
+              grid-template-columns: 1fr;
+            }
+            @include media(">=tablet", "<desktop") {
+              grid-template-columns: 1fr 1fr;
+            }
+        }
+    }
+
+    .card {
+        width: 250px;
+        height: 300px;
+        background: transparent;
+        border: 1px solid #3F3B3B;
+        border-radius: 5px;
+        display: flex;
+        padding: 10px;
+        flex-direction: column;
+
+        @include media(">=phone", "<lgphone") {
+            width:300px;
+        }
+
+        .title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #3F3B3B;
+            padding: 5px 0;
+        }
+
+        span {
+            font-size: 14px;
+            padding: 5px 0;
+            color: #3F3B3B;
+            display: flex;
+
+            @include media(">=phone", "<lgphone") {
+                font-size: 16px;
+            }
+            
+
+            strong {
+                color: #021220;
+                margin-left: 5px;
+
+            }
+        }
+
+        .adUrl {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+            margin-top: 20px;
+
+            a {
+                text-decoration: none;
+                color: #399DFA;
+                font-size: 16px;
+                font-weight: 500;
+            }
+
+            &:hover {
+                filter: brightness(0.8);
+            }
+        }
+    }
+}
