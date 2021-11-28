@@ -14,7 +14,6 @@ Clone this repository:
 
 ```
 git clone https://github.com/victorlim4/facebook-ads-spy.git
-
 ```
 
 * Run `yarn install` to install all project
