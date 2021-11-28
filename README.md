@@ -10,6 +10,8 @@ To install Facebook Ads Tracker, follow this steps:
 * Create and config a Facebook App
 * Get the Facebook APP Id, and put inside your code
 
+Clone this repository:
+
 ```
 git clone https://github.com/victorlim4/facebook-ads-spy.git
 
@@ -19,6 +21,14 @@ git clone https://github.com/victorlim4/facebook-ads-spy.git
 * Run `yarn dev` to run your project
 
 
-## 📝 Licença
+## Contributing
 
-Esse projeto está sob licença.
+Contributions are always welcome!
+
+See `contributing.md` for ways to get started.
+
+
+
+## 📝 License
+
+This project is under license
