@@ -6,10 +6,11 @@ export function AuthProvider(props) {
 
     const [login, setLogin] = useState(false)
     const [token, setToken] = useState('')
+    
     function logout() {
         try {
             window.FB.logout();
-            console.log("logout com sucesso");
+            console.log("user has been disconnected");
             setLogin(null)
         } catch(err) {
             console.log(err.message)
@@ -17,7 +18,7 @@ export function AuthProvider(props) {
     }
 
     return (
-        <AuthContext.Provider value={{ 
+        <AuthContext.Provider value={{
             login, 
             logout, 
             setLogin, 

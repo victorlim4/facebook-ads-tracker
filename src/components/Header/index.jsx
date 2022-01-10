@@ -15,7 +15,7 @@ export function Header() {
                 login ?
                 <button onClick={logout}>
                     <FiLogOut className="icon"/>
-                    Desconectar
+                    Disconnect
                 </button>
                 :
                 ""

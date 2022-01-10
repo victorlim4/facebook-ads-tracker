@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "facebook-ads-tracker",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --https",

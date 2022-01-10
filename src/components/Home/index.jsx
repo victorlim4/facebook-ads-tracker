@@ -14,11 +14,6 @@ export function Home() {
     const [data, setData] = useState([]);
 
     const getSearch = () => {
-        /**
-         * Fazendo Chamada para a API do Facebook
-         * Filtrando e setando os parametros necessários
-         * Salvando dados em um estado
-         */
 
         window.FB.api(
             '/ads_archive',
@@ -32,7 +27,7 @@ export function Home() {
                 "fields": "impressions, page_name, page_id, publisher_platforms, ad_creative_bodies, estimated_audience_size, spend, ad_snapshot_url, ad_creation_time, ad_delivery_start_time, ad_delivery_stop_time"
             },
             function(response) {
-                // Setando dados
+
                 if (response && !response.error) {
                     //console.log(response.data)
                     setData(response.data)
@@ -52,53 +47,47 @@ export function Home() {
 
             {AdImpressions.map((impression) => {
                 return (
-                 <span>Impressões: <strong>{impression?.lower_bound}-{impression?.upper_bound}K</strong></span>
+                 <span>Impressions: <strong>{impression?.lower_bound}-{impression?.upper_bound}K</strong></span>
                 )
             })}
 
             {Audience.map((audience) => {
                 return (
-                 <span>Audiencia: <strong>{audience?.lower_bound}-{audience?.upper_bound}K</strong></span>
+                 <span>Audience: <strong>{audience?.lower_bound}-{audience?.upper_bound}K</strong></span>
                 )
             })}
 
             {Spend.map((spend) => {
                 return (
-                 <span>Gastos: <strong>R${spend?.lower_bound}-{spend?.upper_bound}</strong></span>
+                 <span>Spends: <strong>R${spend?.lower_bound}-{spend?.upper_bound}</strong></span>
                 )
             })}
 
             {Platforms.map((platform) => {
 
                 function verify(plat) {
-                    if (plat === "facebook") {
-                        return <FiFacebook />
-                    } else {
-                        return <FiInstagram />
-                    }
+                    plat === "facebook" ? <FiFacebook /> : <FiInstagram />
                 }
                 return (
-                    <span>Plataformas: 
+                    <span>Platforms: 
                     <strong>
                     {
-                        platform[0] != null 
-                        ? verify(platform[0]) : null
-                        } 
+                        platform[0] != null ? verify(platform[0]) : null
+                    } 
                     {
-                        platform[1] != null 
-                        ? verify(platform[1]) : null
-                        }
+                        platform[1] != null ? verify(platform[1]) : null
+                    }
                         </strong>
                     </span>
                 )
             })}
 
-            <span>Criado em: <strong>{AdCreatedDate}</strong></span>
-            <span>Inicio: <strong>{Beginning}</strong></span>
-            <span>Fim: <strong>{End != null ? End : "Em Andamento"}</strong></span>
+            <span>Created At: <strong>{AdCreatedDate}</strong></span>
+            <span>Beginning: <strong>{Beginning}</strong></span>
+            <span>End: <strong>{End != null ? End : "In Progress"}</strong></span>
 
             <div className="adUrl">
-                <a href={AdUrl}>Ver Anúncio</a>
+                <a href={AdUrl}>See Ad</a>
             </div>
 
         </div>
@@ -107,51 +96,45 @@ export function Home() {
 
     return (
         <div className="homeContainer">
-            {/** Logo */}
             <Logo />
 
-            {/** Search */}
             <div className="searchContainer">
-                {/** icon */}
                 <FiSearch size="22"/>
 
-                {/** input */}
                 <input 
                     name="search"
                     type="text"
-                    placeholder="Cole aqui o seu link ou pesquise algo"
+                    placeholder="Search Something"
                     onChange={({target}) => setSearch(target.value)}
                     value={search}
                 />
 
-                {/** button */}
                 <button className="button" onClick={getSearch}>
-                    Pesquisar
+                    Search
                 </button>
 
             </div>
 
             <div className="cardsSection">
-                {/** Mapeando dados para os cartões */} 
                 <div className="grid">
                     {
                        data.length > 0 ?
-                       data.map(dado =>
+                       data.map(item =>
                             <Card 
-                                key={dado.id}
-                                AdUrl={dado.ad_snapshot_url}
-                                AdName={dado.page_name}
-                                AdImpressions={[dado.impressions]}
-                                Spend={[dado.spend]}
-                                AdCreatedDate={dado.ad_creation_time}
-                                Beginning={dado.ad_delivery_start_time}
-                                End={dado.ad_delivery_stop_time}
-                                Audience={[dado.estimated_audience_size]}
-                                Platforms={[dado.publisher_platforms]}
+                                key={item.id}
+                                AdUrl={item.ad_snapshot_url}
+                                AdName={item.page_name}
+                                AdImpressions={[item.impressions]}
+                                Spend={[item.spend]}
+                                AdCreatedDate={item.ad_creation_time}
+                                Beginning={item.ad_delivery_start_time}
+                                End={item.ad_delivery_stop_time}
+                                Audience={[item.estimated_audience_size]}
+                                Platforms={[item.publisher_platforms]}
                             />
                         )
                         :
-                        console.log("Não encontramos nada")
+                        console.log("We didn't find anything")
                     }
                 </div>
             </div>

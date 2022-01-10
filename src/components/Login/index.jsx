@@ -41,7 +41,7 @@ export function Login() {
                 "borderRadius": "5px"
               }}
               icon="fa-facebook" 
-              textButton = "&nbsp;&nbsp;Logar com Facebook"  
+              textButton = "&nbsp;&nbsp;Login With Facebook"  
               />
               
     </div>
