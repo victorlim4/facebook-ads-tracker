@@ -30,7 +30,6 @@ or
 
 Contributions are always welcome!
 
-
 ## 📝 License
 
 This project is under license
