@@ -13,7 +13,7 @@ To install Facebook Ads Tracker, follow this steps:
 Clone this repository:
 
 ```
-git clone https://github.com/victorlim4/facebook-ads-spy.git
+git clone https://github.com/victorlim4/facebook-ads-tracker.git
 ```
 
 or
